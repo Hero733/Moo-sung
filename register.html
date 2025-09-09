@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สร้างบัญชี - Gameมึงซวย</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <div class="screen active" id="create-account-screen">
+            <div class="card">
+                <h1 class="welcome-heading">สร้างบัญชี</h1>
+                <p class="welcome-text">กรอกข้อมูลเพื่อสร้างบัญชี</p>
+                <div class="form-group">
+                    <input type="text" id="new-username" placeholder="ชื่อผู้ใช้">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="new-password" placeholder="รหัสผ่าน">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirm-password" placeholder="ยืนยันรหัสผ่าน">
+                </div>
+                <button class="btn-primary" onclick="createAccount()">สร้างบัญชี</button>
+                <a href="index.html" class="link-button">ย้อนกลับ</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

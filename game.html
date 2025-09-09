@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เล่นเกม - Gameมึงซวย</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <div class="screen active" id="game-screen">
+            <header class="navbar">
+                <h2 id="" class=""></h2>
+                <div class="nav-buttons">
+                    <a href="home.html" class="btn-secondary">หน้าหลัก</a>
+                    <a href="settings.html" class="btn-secondary">ตั้งค่าโปรไฟล์</a>
+                    <button class="btn-danger" onclick="logout()">ออกจากระบบ</button>
+                </div>
+            </header>
+            <div class="card game-card">
+                <div id="status-bar">
+                    <div class="status-item"><span class="icon">❤️</span><span id="hearts-counter">3</span></div>
+                    <div class="status-item"><span class="icon">🏆</span><span id="score-counter">0</span>/20</div>
+                </div>
+                <img id="character-display" src="" alt="ตัวละครเกม">
+                <h2 id="question-text"></h2>
+                <input type="text" id="answer-input" placeholder="ใส่คำตอบ" onkeydown="handleKeyPress(event)">
+                <button class="btn-primary" onclick="checkAnswer()">ส่งคำตอบ</button>
+                <p id="message"></p>
+            </div>
+        </div>
+        <div class="screen" id="end-screen">
+            <div class="card">
+                <h2 id="end-message"></h2>
+                <button class="btn-primary" onclick="window.location.href='home.html'">กลับสู่หน้าหลัก</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loggedInUser = localStorage.getItem('currentUser');
+            const selectedCharacter = localStorage.getItem('selectedCharacter');
+            if (!loggedInUser) {
+                window.location.href = 'index.html';
+            } else if (!selectedCharacter) {
+                window.location.href = 'game-select.html';
+            } else {
+                updateProfileDisplays();
+                startGame();
+            }
+        });
+    </script>
+</body>
+</html>

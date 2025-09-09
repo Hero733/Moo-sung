@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตั้งค่าโปรไฟล์ - Gameมึงซวย</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <div class="screen active" id="profile-settings-screen">
+            <header class="navbar">
+                <h2 id="" class=""></h2>
+                <div class="nav-buttons">
+                    <a href="home.html" class="btn-secondary">หน้าหลัก</a>
+                    <a href="game-select.html" class="btn-secondary">เล่นเกม</a>
+                    <button class="btn-danger" onclick="logout()">ออกจากระบบ</button>
+                </div>
+            </header>
+            <div class="card profile-card">
+                <h2>ตั้งค่าโปรไฟล์</h2>
+                <div class="form-group">
+                    <label for="new-username">เปลี่ยนชื่อผู้ใช้:</label>
+                    <input type="text" id="new-username" placeholder="ชื่อผู้ใช้ใหม่">
+                    <button class="btn-primary" onclick="changeUsername()">บันทึก</button>
+                </div>
+                <div class="form-group">
+                    <label for="current-password-change">เปลี่ยนรหัสผ่าน:</label>
+                    <input type="password" id="current-password-change" placeholder="รหัสผ่านปัจจุบัน">
+                    <input type="password" id="new-password-change" placeholder="รหัสผ่านใหม่">
+                    <button class="btn-primary" onclick="changePassword()">บันทึก</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loggedInUser = localStorage.getItem('currentUser');
+            if (!loggedInUser) {
+                window.location.href = 'index.html';
+            } else {
+                updateProfileDisplays();
+            }
+        });
+    </script>
+</body>
+</html>

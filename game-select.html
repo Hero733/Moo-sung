@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกครู - Gameมึงซวย</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <div class="screen active" id="character-select-screen">
+            <header class="navbar">
+                <h2 class="profile-name-display"></h2>
+                <div class="nav-buttons">
+                    <a href="home.html" class="btn-secondary">หน้าหลัก</a>
+                    <a href="settings.html" class="btn-secondary">ตั้งค่าโปรไฟล์</a>
+                    <button class="btn-danger" onclick="logout()">ออกจากระบบ</button>
+                </div>
+            </header>
+            <div class="card">
+                <h2>เลือกครูของคุณ</h2>
+                <div class="character-selection">
+                    <div class="character-option">
+                        <img src="photo/C1.png" alt="ตัวละคร 1" onclick="selectCharacter('A')">
+                        <p>ครู วินัย เลี้ยงชื่นใจ</p>
+                    </div>
+                    <div class="character-option">
+                        <img src="photo/C2.png" alt="ตัวละคร 2" onclick="selectCharacter('B')">
+                        <p>ครู จามิกร ฤทธิ์มนตรี</p>
+                    </div>
+                    <div class="character-option">
+                        <img src="photo/C3.png" alt="ตัวละคร 3" onclick="selectCharacter('C')">
+                        <p>ครู วราภรณ์ วุฒิชา</p>
+                    </div>
+                </div>
+                <p class="subtitle">เลือกครูเพื่อช่วยเริ่มการผจญภัย!</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loggedInUser = localStorage.getItem('currentUser');
+            if (!loggedInUser) {
+                window.location.href = 'index.html';
+            }
+        });
+
+        function selectCharacter(char) {
+            localStorage.setItem('selectedCharacter', char);
+            window.location.href = 'game.html';
+        }
+    </script>
+</body>
+</html>
